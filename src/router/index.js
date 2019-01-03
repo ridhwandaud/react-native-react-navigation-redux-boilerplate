@@ -10,9 +10,9 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button title="Show me more of the app" onPress={this._showMoreApp} />
-        <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
+      <View testID='home' style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Button testID='show_button' title="Show me more of the app" onPress={this._showMoreApp} />
+        <Button testID='signout_button' title="Actually, sign me out :)" onPress={this._signOutAsync} />
       </View>
     );
   }
@@ -30,7 +30,7 @@ class HomeScreen extends React.Component {
 class OtherScreen extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View testID='other' style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Other Screen</Text>
         <Button
           title="Go to Other... again"
@@ -41,6 +41,7 @@ class OtherScreen extends React.Component {
           onPress={() => this.props.navigation.navigate('Home')}
         />
         <Button
+          testID='back_button'
           title="Go back"
           onPress={() => this.props.navigation.goBack()}
         />
@@ -49,63 +50,63 @@ class OtherScreen extends React.Component {
   }
 }
 
-// class SignInScreen extends React.Component {
-//   static navigationOptions = {
-//     title: 'Please sign in',
-//   };
+class SignInScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Please sign in',
+  };
 
+  render() {
+    return (
+      <View testID='welcome' style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Button testID='sign_button' title="Sign in!" onPress={this._signInAsync} />
+      </View>
+    );
+  }
+
+  _signInAsync = async () => {
+    await AsyncStorage.setItem('userToken', 'abc');
+    this.props.navigation.navigate('App');
+  };
+}
+
+// class SignInScreen extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       greeting: undefined
+//     };
+//   }
 //   render() {
+//     if (this.state.greeting) return this.renderAfterButton();
 //     return (
-//       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//         <Button title="Sign in!" onPress={this._signInAsync} />
+//       <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
+//         <Text style={{fontSize: 25, marginBottom: 30}}>
+//           Welcome
+//         </Text>
+//         <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
+//           <Text style={{color: 'blue', marginBottom: 20}}>Say Hello</Text>
+//         </TouchableOpacity>
+//         <TouchableOpacity testID='world_button' onPress={this.onButtonPress.bind(this, 'World')}>
+//           <Text style={{color: 'blue', marginBottom: 20}}>Say World</Text>
+//         </TouchableOpacity>
 //       </View>
 //     );
 //   }
-
-//   _signInAsync = async () => {
-//     await AsyncStorage.setItem('userToken', 'abc');
-//     this.props.navigation.navigate('App');
-//   };
+//   renderAfterButton() {
+//     return (
+//       <View style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
+//         <Text style={{fontSize: 25}}>
+//           {this.state.greeting}!!!
+//         </Text>
+//       </View>
+//     );
+//   }
+//   onButtonPress(greeting) {
+//     this.setState({
+//       greeting: greeting
+//     });
+//   }
 // }
-
-class SignInScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      greeting: undefined
-    };
-  }
-  render() {
-    if (this.state.greeting) return this.renderAfterButton();
-    return (
-      <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{fontSize: 25, marginBottom: 30}}>
-          Welcome
-        </Text>
-        <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
-          <Text style={{color: 'blue', marginBottom: 20}}>Say Hello</Text>
-        </TouchableOpacity>
-        <TouchableOpacity testID='world_button' onPress={this.onButtonPress.bind(this, 'World')}>
-          <Text style={{color: 'blue', marginBottom: 20}}>Say World</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-  renderAfterButton() {
-    return (
-      <View style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{fontSize: 25}}>
-          {this.state.greeting}!!!
-        </Text>
-      </View>
-    );
-  }
-  onButtonPress(greeting) {
-    this.setState({
-      greeting: greeting
-    });
-  }
-}
 
 const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
 const AuthStack = createStackNavigator({ SignIn: SignInScreen });

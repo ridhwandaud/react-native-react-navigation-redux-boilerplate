@@ -6,9 +6,9 @@ before(async () => {
   await detox.init(config);
 });
 
-beforeEach(async function () {
-  await adapter.beforeEach(this);
-});
+// beforeEach(async function () {
+//   await adapter.beforeEach(this);
+// });
 
 afterEach(async function () {
   await adapter.afterEach(this);
