@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, AsyncStorage } from "react-native";
+import { View, Text, Button, AsyncStorage, TouchableOpacity } from "react-native";
 import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
 import AuthLoadingScreen from 'Containers/AuthLoadingScreen';
 
@@ -49,23 +49,62 @@ class OtherScreen extends React.Component {
   }
 }
 
-class SignInScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Please sign in',
-  };
+// class SignInScreen extends React.Component {
+//   static navigationOptions = {
+//     title: 'Please sign in',
+//   };
 
+//   render() {
+//     return (
+//       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//         <Button title="Sign in!" onPress={this._signInAsync} />
+//       </View>
+//     );
+//   }
+
+//   _signInAsync = async () => {
+//     await AsyncStorage.setItem('userToken', 'abc');
+//     this.props.navigation.navigate('App');
+//   };
+// }
+
+class SignInScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      greeting: undefined
+    };
+  }
   render() {
+    if (this.state.greeting) return this.renderAfterButton();
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Button title="Sign in!" onPress={this._signInAsync} />
+      <View testID='welcome' style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{fontSize: 25, marginBottom: 30}}>
+          Welcome
+        </Text>
+        <TouchableOpacity testID='hello_button' onPress={this.onButtonPress.bind(this, 'Hello')}>
+          <Text style={{color: 'blue', marginBottom: 20}}>Say Hello</Text>
+        </TouchableOpacity>
+        <TouchableOpacity testID='world_button' onPress={this.onButtonPress.bind(this, 'World')}>
+          <Text style={{color: 'blue', marginBottom: 20}}>Say World</Text>
+        </TouchableOpacity>
       </View>
     );
   }
-
-  _signInAsync = async () => {
-    await AsyncStorage.setItem('userToken', 'abc');
-    this.props.navigation.navigate('App');
-  };
+  renderAfterButton() {
+    return (
+      <View style={{flex: 1, paddingTop: 20, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{fontSize: 25}}>
+          {this.state.greeting}!!!
+        </Text>
+      </View>
+    );
+  }
+  onButtonPress(greeting) {
+    this.setState({
+      greeting: greeting
+    });
+  }
 }
 
 const AppStack = createStackNavigator({ Home: HomeScreen, Other: OtherScreen });
