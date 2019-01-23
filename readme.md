@@ -19,6 +19,8 @@ Xcode
 ### Installation
 
 1. Run: `$ yarn install`
+2. Run: `$ react-native start`
+3. Run: `$ react-native run-android/run-ios`
 
 ### Running the tests
 
@@ -31,6 +33,7 @@ Xcode
 * [ReactNative](https://facebook.github.io/react-native/) - Built native mobile apps using Javascript and React
 * [ReactNavigation](https://reactnavigation.org/en/) - Routing and navigation for your React Native apps
 * [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
+* [Detox](https://github.com/wix/Detox) - Gray Box End-to-End Testing and Automation Framework for Mobile Apps
 
 ## Authors
 
@@ -40,5 +43,5 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licenced under the [MIT License](http://opensource.org/licenses/mit-license.html).
 
