@@ -27,6 +27,10 @@ Xcode
 1. Run: `$ detox init -r mocha`
 2. Then run: `$ detox test`
 
+### Eslint
+
+See the [eslint.md](eslint.md) file for details
+
 
 ## Built With
 
