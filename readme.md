@@ -39,7 +39,7 @@ Xcode
 
 * **Ridhwan Daud** - *Initial work* - [RidhwanDaud](https://github.com/ridhwandaud)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/ridhwandaud/react-native-react-navigation-redux-boilerplate/graphs/contributors) who participated in this project.
 
 ## License
 
