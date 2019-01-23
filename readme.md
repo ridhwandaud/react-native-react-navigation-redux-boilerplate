@@ -4,7 +4,7 @@ Simple react native with react-navigation and redux
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -18,10 +18,7 @@ Xcode
 
 ### Installation
 
-1. Run: `$ yarn`
-
-
-End with an example of getting some data out of the system or using it for a little demo
+1. Run: `$ yarn install`
 
 ### Running the tests
 
@@ -33,7 +30,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 * [ReactNative](https://facebook.github.io/react-native/) - Built native mobile apps using Javascript and React
 * [ReactNavigation](https://reactnavigation.org/en/) - Routing and navigation for your React Native apps
-* [Redux](hhttps://redux.js.org/) - A predictable state container for JavaScript apps.
+* [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
 
 ## Authors
 
