@@ -11,10 +11,10 @@ import logger from 'redux-logger';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['LoginReducer']
-}
+  whitelist: ['LoginReducer'],
+};
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer, applyMiddleware(thunk, logger));
 export const persistor = persistStore(store);

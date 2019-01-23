@@ -1,6 +1,4 @@
-import React from "react";
-import { View, Text, Button, AsyncStorage, TouchableOpacity } from "react-native";
-import { createStackNavigator, createAppContainer, createSwitchNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer, createSwitchNavigator } from 'react-navigation';
 import AuthLoadingScreen from 'Containers/AuthLoadingScreen';
 import HomeScreen from 'Containers/HomeScreen';
 import OtherScreen from 'Containers/TestScreen';
@@ -18,5 +16,5 @@ export default createAppContainer(createSwitchNavigator(
   },
   {
     initialRouteName: 'AuthLoading',
-  }
+  },
 ));
