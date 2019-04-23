@@ -4,17 +4,22 @@ import { createStackNavigator, createAppContainer, createSwitchNavigator, create
 import AuthLoadingScreen from 'Containers/AuthLoadingScreen';
 import SignScreen from 'Containers/SignScreen';
 
-// Home
+// Tab
 import HomeScreen from 'Containers/HomeScreen';
-import SettingScreen from 'Containers/SettingScreen';
-
+import InboxScreen from 'Containers/InboxScreen';
+import OrderScreen from 'Containers/OrderScreen';
+import FeedScreen from 'Containers/FeedScreen';
+import AccountScreen from 'Containers/AccountScreen';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const AppStack = createBottomTabNavigator(
   {
     Home: HomeScreen,
-    Settings: SettingScreen,
+    Inbox: InboxScreen,
+    Order: OrderScreen,
+    Feed: FeedScreen,
+    Account: AccountScreen,
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -23,19 +28,24 @@ const AppStack = createBottomTabNavigator(
         let IconComponent = Ionicons;
         let iconName;
         if (routeName === 'Home') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-          // Sometimes we want to add badges to some icons. 
-          // You can check the implementation below.
-        } else if (routeName === 'Settings') {
-          iconName = `ios-options`;
+          iconName = "md-home";
+        } else if (routeName === 'Account') {
+          iconName = "md-person";
+        } else if (routeName === 'Order') {
+          iconName = "md-add-circle";
+        } else if (routeName === 'Inbox') {
+          iconName = "md-mail";
+        } else if (routeName === 'Feed') {
+          iconName = "md-list";
         }
+
 
         // You can return any component that you like here!
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: '#00b1f9',
       inactiveTintColor: 'gray',
     },
   }

@@ -16,11 +16,4 @@ class HomeScreen extends React.Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-  return {
-    authActions: bindActionCreators(authActions, dispatch)
-  };
-};
-
-export default connect(null, mapDispatchToProps)(HomeScreen);
+export default HomeScreen;
